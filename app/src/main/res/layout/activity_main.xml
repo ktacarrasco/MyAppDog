@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/puppy"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_dog_svgrepo_com"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="Lista de Razas de Perro"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="30dp"
+        android:background="#0FB4CA"/>
+
+
+    <FrameLayout
+        android:id="@+id/frameLf"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="115dp"
+            android:layout_height="109dp"
+            android:layout_gravity="bottom|end"
+            android:foreground="@android:drawable/btn_star_big_on"
+            app:backgroundTint="#F6F4E5"
+            app:fabSize="auto"
+            app:rippleColor="#F8F7F2" />
+    </FrameLayout>
+
+</LinearLayout>
