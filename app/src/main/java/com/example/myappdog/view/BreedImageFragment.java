@@ -1,4 +1,4 @@
-package com.example.myappdog.view.adapter;
+package com.example.myappdog.view;
 
 import android.os.Bundle;
 
@@ -7,8 +7,12 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.myappdog.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,33 +20,17 @@ import com.example.myappdog.R;
  * create an instance of this fragment.
  */
 public class BreedImageFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private List<String> mParam1;
 
     public BreedImageFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment BreedImageFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static BreedImageFragment newInstance(String param1, String param2) {
+    public static BreedImageFragment newInstance(List<String> urlList) {
         BreedImageFragment fragment = new BreedImageFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putStringArrayList(ARG_PARAM1, (ArrayList<String>) urlList);
         fragment.setArguments(args);
         return fragment;
     }
@@ -51,8 +39,7 @@ public class BreedImageFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            mParam1 = getArguments().getStringArrayList(ARG_PARAM1);
         }
     }
 
@@ -60,6 +47,9 @@ public class BreedImageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_breed_image, container, false);
+        View view = inflater.inflate(R.layout.fragment_breed_list, container, false);
+        TextView textViewImages = view.findViewById(R.id.textViewitem);
+        textViewImages.setText(mParam1.get(0).toString());
+        return view;
     }
 }

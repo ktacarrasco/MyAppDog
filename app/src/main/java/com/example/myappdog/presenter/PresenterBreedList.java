@@ -18,9 +18,9 @@ public class PresenterBreedList implements IpresenterList {
     Api service = RetrofitClient.getRetrofitInstance().create(Api.class);
     Call<BreedListResponse> call = service.getBreedList();
 
-   /* public PresenterBreedList(IpresenterImage view) {
+    public PresenterBreedList(IpresenterImage view) {
         this.view = view;
-    }*/
+    }
 
 
 
