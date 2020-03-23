@@ -2,6 +2,7 @@ package com.example.myappdog.presenter;
 
 import android.util.Log;
 
+import com.example.myappdog.model.BreedImageListResponse;
 import com.example.myappdog.model.BreedListResponse;
 import com.example.myappdog.model.apiDog.Api;
 import com.example.myappdog.model.apiDog.RetrofitClient;
@@ -21,7 +22,6 @@ public class PresenterBreedList implements IpresenterList {
     public PresenterBreedList(IpresenterImage view) {
         this.view = view;
     }
-
 
 
     @Override
@@ -49,6 +49,24 @@ public class PresenterBreedList implements IpresenterList {
     @Override
     public void loadImagesBreed(String dogBreed) {
 
+
+        Call<BreedImageListResponse> callImages = service.getBreedImageList(dogBreed);
+        Log.e("IMAGENES", String.valueOf(dogBreed));
+        callImages.enqueue(new Callback<BreedImageListResponse>() {
+            @Override
+            public void onResponse(Call<BreedImageListResponse> call, Response<BreedImageListResponse> response) {
+                List<String> imagesURL = response.body().getImageURL();
+                Log.e("IMAGESDOGS", String.valueOf(imagesURL));
+                view.showImagesUrlList(imagesURL);
+
+            }
+
+            @Override
+            public void onFailure(Call<BreedImageListResponse> call, Throwable t) {
+                Log.e("FALLO", String.valueOf(t));
+            }
+
+        });
     }
 
 

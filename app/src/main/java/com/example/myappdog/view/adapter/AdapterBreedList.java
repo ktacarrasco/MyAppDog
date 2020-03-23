@@ -37,7 +37,7 @@ public class AdapterBreedList extends RecyclerView.Adapter<AdapterBreedList.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderList holder, final int position) {
-        //holder.textViewitem.setText(breedList.get(position));
+        holder.textViewitem.setText(breedList.get(position));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,6 +56,7 @@ public class AdapterBreedList extends RecyclerView.Adapter<AdapterBreedList.View
 
         public ViewHolderList(@NonNull View itemView) {
             super(itemView);
+            textViewitem = itemView.findViewById(R.id.textViewitem);
         }
     }
 

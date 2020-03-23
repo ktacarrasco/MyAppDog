@@ -72,6 +72,7 @@ public class BreedListFragment extends Fragment implements AdapterBreedList.Item
     public void onClick(String dog) {
         Toast.makeText(getContext(), dog, Toast.LENGTH_SHORT).show();
         presenter.loadImagesBreed(dog);
+        showMessageInView(dog);
     }
 
 
@@ -84,6 +85,7 @@ public class BreedListFragment extends Fragment implements AdapterBreedList.Item
     @Override
     public void showImagesUrlList(List<String> dogsUrlList) {
         Log.e("URL", dogsUrlList.toString());
+       // presenter.loadImagesBreed(dog);
         initializeFragmentBreed(dogsUrlList);
     }
 
