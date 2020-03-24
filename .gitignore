@@ -14,3 +14,4 @@
 .cxx
 /.idea/gradle.xml
 *.idea
+/app/google-services.json

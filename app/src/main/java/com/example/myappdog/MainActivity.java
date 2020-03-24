@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.myappdog.view.BreedFavoriteImage;
 import com.example.myappdog.view.BreedListFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -44,8 +45,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getDogs() {
-
-       /* db = FirebaseFirestore.getInstance();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         db.collection("favorito")
                 .get()
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
 
-                });*/
+                });
     }
 
 
@@ -84,5 +84,16 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
     }
 
+    private void instanceFavoriteDog(List<String> list) {
+
+        BreedFavoriteImage breedFavoriteImageFragment = BreedFavoriteImage.newInstance(list);
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.frameLf, breedFavoriteImageFragment, breedFavoriteImageFragment.getClass().getSimpleName())
+                //.addToBackStack(null)
+                .commit();
+
+
+    }
 
 }

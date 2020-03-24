@@ -52,10 +52,12 @@ public class AdapterImageBreed extends RecyclerView.Adapter<AdapterImageBreed.Vi
                 .load(breedPhotoListResponse)
                 .into(holder.dogPhotoView);
 
+
         holder.dogPhotoView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 db = FirebaseFirestore.getInstance();
+                final int x = 0;
                 FavoriteDog selectFav = new FavoriteDog(breedPhoto.get(position), Timestamp.now());
                 try {
                     db.collection("favorito").add(selectFav);

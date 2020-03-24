@@ -1,5 +1,6 @@
 package com.example.myappdog.view;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -36,6 +37,9 @@ public class BreedImageFragment extends Fragment  implements AdapterImageBreed.I
     private AdapterImageBreed adapter;
     private RecyclerView recyclerView;
     private List<String> doggis = new ArrayList<>();
+    private List<String> breedPhoto;
+    private Context context;
+    private FirebaseFirestore db;
 
     public BreedImageFragment() {
         // Required empty public constructor
@@ -82,8 +86,6 @@ public class BreedImageFragment extends Fragment  implements AdapterImageBreed.I
 
 
         return view;
-
-
 
     }
 
