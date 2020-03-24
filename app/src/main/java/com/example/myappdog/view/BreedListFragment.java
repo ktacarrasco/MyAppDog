@@ -85,6 +85,9 @@ public class BreedListFragment extends Fragment implements AdapterBreedList.Item
     @Override
     public void showImagesUrlList(List<String> dogsUrlList) {
         Log.e("URL", dogsUrlList.toString());
+        adapter = new AdapterBreedList(dogsUrlList, getContext(),this);
+        recyclerView.setAdapter(adapter);
+
        // presenter.loadImagesBreed(dog);
         initializeFragmentBreed(dogsUrlList);
     }
